@@ -32,7 +32,7 @@ const Signup = () => {
       // ✅ SIGN UP ONCE
       const user = await signUpUser(email, password);
 
-      // ✅ HANDLE REFERRAL (AFTER USER EXISTS)
+      
       if (referrerId && user?.id) {
         await supabase.rpc("handle_referral", {
           referrer: referrerId,
@@ -40,16 +40,14 @@ const Signup = () => {
         });
       }
 
-      // ✅ SHOW FRIENDLY MESSAGE
+      
       setSuccess("A verification link has been sent to your email. Please check your inbox.");
 
-      // Optional: redirect after a delay
       setTimeout(() => {
         navigate("/");
       }, 3000);
 
     } catch (err) {
-      // ❌ Only real errors come here
       setError(err.message);
     } finally {
       setLoading(false);

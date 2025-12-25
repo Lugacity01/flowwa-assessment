@@ -40,9 +40,7 @@ const ReferralCard = () => {
     alert("Referral link copied!");
   };
 
-  /* =========================
-     SKELETON LOADING STATE
-  ========================== */
+
   if (loading) {
     return (
       <div className="bg-white rounded-xl p-6 border border-gray-200 animate-pulse">
@@ -86,9 +84,7 @@ const ReferralCard = () => {
     );
   }
 
-  /* =========================
-     REAL CONTENT
-  ========================== */
+
   return (
     <div className="bg-white rounded-xl p-6 border border-gray-200">
       <div className="flex items-start gap-4 mb-6">
