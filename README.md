@@ -1,16 +1,40 @@
-# React + Vite
+Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Rewards & Referral Dashboard built with React and Supabase.
+Users can sign up, log in, earn points daily, invite friends, and redeem rewards based on their points.
 
-Currently, two official plugins are available:
+The system focuses on good user experience, security, and real backend logic, not just UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Key Features
+* Email and Google authentication
+* Email verification on signup
+* Protected routes (users must be logged in)
+* Mandatory profile completion before dashboard access
+* Daily streak rewards (+5 points per day)
+* Referral system (+25 points per successful referral)
+* Rewards redemption based on points
+* Skeleton loaders for better loading experience
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Tech Stack
+* Frontend: React + Tailwind CSS
+* Backend: Supabase (Auth, Database, RPC functions)
+* Auth: Email/Password and Google OAuth
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+How It Works (Simple Flow)
+1. User signs up and receives a verification email
+2. User logs in
+3. If profile is incomplete, the user must complete it
+4. User earns points via daily streaks and referrals
+5. Points can be redeemed for rewards
+
+
+Assumptions
+* Email verification is enabled in Supabase
+* Users must verify email before full access
+* Rewards are stored in the database, not hard-coded
+* Coming Soon rewards are defined by points_required = 0
+* Profile data is stored in a profiles table
+* Referral rewards are handled using a Supabase RPC function
+* Skeleton loaders and spinners are used for better UX
